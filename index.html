@@ -852,14 +852,26 @@ body::after {
 }
 .game-sheet-handle:active { cursor:grabbing; opacity:1; }
 .game-sheet-close {
-  position:absolute; top:12px; right:16px;
-  width:32px; height:32px;
-  background:var(--bg3); border:1px solid var(--border2);
-  border-radius:50%; color:var(--muted);
-  font-size:1rem; display:flex; align-items:center; justify-content:center;
-  cursor:pointer; transition:border-color .2s, color .2s;
+  position:fixed; top:auto;
+  width:44px; height:44px;
+  background:var(--cyan); border:none;
+  border-radius:50%; color:#000;
+  font-size:1.1rem; font-weight:700;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:transform .2s, box-shadow .2s;
+  box-shadow:0 4px 20px rgba(0,0,0,.3);
+  right:16px; margin-top:14px;
+  z-index:2010; flex-shrink:0;
 }
-.game-sheet-close:hover { border-color:var(--cyan); color:var(--cyan); }
+.game-sheet-close:hover { transform:scale(1.1); }
+/* Sticky close btn wrapper */
+.game-sheet-sticky {
+  position:sticky; top:0; z-index:2010;
+  display:flex; justify-content:flex-end;
+  padding:.8rem 1rem .4rem;
+  background:var(--bg2);
+  border-bottom:1px solid var(--border2);
+}
 .game-sheet-content { padding:1rem 1.5rem 2rem; }
 
 /* Only show bottom sheet on mobile */
@@ -1569,8 +1581,10 @@ body::after {
 <!-- MOBILE BOTTOM SHEET -->
 <div class="game-sheet-overlay" id="gameSheetOverlay" onclick="closeSheet()"></div>
 <div class="game-sheet" id="gameSheet">
-  <div class="game-sheet-handle"></div>
-  <button class="game-sheet-close" onclick="closeSheet()">✕</button>
+  <div class="game-sheet-sticky">
+    <div class="game-sheet-handle" style="position:absolute;left:50%;transform:translateX(-50%);top:10px;"></div>
+    <button class="game-sheet-close" onclick="closeSheet()">✕</button>
+  </div>
   <div class="game-sheet-content" id="gameSheetContent"></div>
 </div>
 
