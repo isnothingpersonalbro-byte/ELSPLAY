@@ -1,8 +1,9 @@
 {
-  "name": "ELSPLAY — When You Can't Play, ELSPLAY",
+  "name": "ELSPLAY \u2014 When You Can't Play, ELSPLAY",
   "short_name": "ELSPLAY",
   "description": "Professional game boosting service. When you can't play, ELSPLAY.",
-  "start_url": "/",
+  "start_url": "/ELSPLAY/",
+  "scope": "/ELSPLAY/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#000000",
@@ -21,7 +22,9 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["games", "entertainment"],
-  "lang": "en",
-  "scope": "/"
+  "categories": [
+    "games",
+    "entertainment"
+  ],
+  "lang": "en"
 }
